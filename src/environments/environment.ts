@@ -4,14 +4,15 @@
 
 export const environment = {
   production: false,
-  firebase : {
-    apiKey: "YOUR_CREDENTIALS_HERE",
-    authDomain: "YOUR_CREDENTIALS_HERE",
-    databaseURL: "YOUR_CREDENTIALS_HERE",
-    projectId: "YOUR_CREDENTIALS_HERE",
-    storageBucket: "YOUR_CREDENTIALS_HERE",
-    messagingSenderId: "YOUR_CREDENTIALS_HERE"
+  firebase :  {
+    apiKey: "AIzaSyC34RjpWBJAGg5B7pSkRS9fqVspwFIn0T4",
+    authDomain: "ibatapril2019.firebaseapp.com",
+    databaseURL: "https://ibatapril2019.firebaseio.com",
+    projectId: "ibatapril2019",
+    storageBucket: "ibatapril2019.appspot.com",
+    messagingSenderId: "651339885419"
   }
+
 };
 
 /*
