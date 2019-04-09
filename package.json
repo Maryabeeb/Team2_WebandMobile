@@ -59,7 +59,7 @@
     "cordova": {
         "plugins": {
             "cordova-plugin-telerik-imagepicker": {
-                "PHOTO_LIBRARY_USAGE_DESCRIPTION": "ibat message"
+                "PHOTO_LIBRARY_USAGE_DESCRIPTION": "DBS Message"
             },
             "cordova-plugin-device": {},
             "cordova-plugin-ionic-keyboard": {},
