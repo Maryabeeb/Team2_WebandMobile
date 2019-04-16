@@ -35,6 +35,7 @@ export class NewTaskPage implements OnInit {
     this.image = "./assets/imgs/default_image.jpg";
     this.validations_form = this.formBuilder.group({
       title: new FormControl('', Validators.required),
+     
       description: new FormControl('', Validators.required)
     });
   }
@@ -42,7 +43,8 @@ export class NewTaskPage implements OnInit {
   onSubmit(value){
     let data = {
       title: value.title,
-      description: value.description,
+      author: value.author,
+      description: value.bookdescription,
       image: this.image
     }
     this.firebaseService.createTask(data)

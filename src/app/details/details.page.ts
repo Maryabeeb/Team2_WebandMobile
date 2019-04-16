@@ -44,14 +44,16 @@ export class DetailsPage implements OnInit {
     })
     this.validations_form = this.formBuilder.group({
       title: new FormControl(this.item.title, Validators.required),
-      description: new FormControl(this.item.description, Validators.required)
+      author:new FormControl(this.item.author,Validators.required),
+      description: new FormControl(this.item.bookdescription, Validators.required)
     });
   }
 
   onSubmit(value){
     let data = {
       title: value.title,
-      description: value.description,
+      author: value.author,
+      description: value.bookdescription,
       image: this.image
     }
     this.firebaseService.updateTask(this.item.id,data)
