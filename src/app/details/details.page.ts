@@ -46,7 +46,9 @@ export class DetailsPage implements OnInit {
     this.validations_form = this.formBuilder.group({
       title: new FormControl(this.item.title, Validators.required),
       description: new FormControl(this.item.description, Validators.required),
-      author: new FormControl(this.item.author, Validators.required)
+      author: new FormControl(this.item.author, Validators.required),
+      price: new FormControl(this.item.price, Validators.required),
+      year: new FormControl(this.item.year, Validators.required)
     });
   }
 
@@ -55,7 +57,9 @@ export class DetailsPage implements OnInit {
       title: value.title,
       description: value.description,
       image: this.image,
-      author: value.author
+      author: value.author,
+      price: value.price,
+      year: value.year
     }
     this.firebaseService.updateTask(this.item.id,data)
     .then(
