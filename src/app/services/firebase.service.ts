@@ -20,7 +20,7 @@ export class FirebaseService {
     return new Promise<any>((resolve, reject) => {
       this.afAuth.user.subscribe(currentUser => {
         if(currentUser){
-          this.snapshotChangesSubscription = this.afs.collection('people').doc(currentUser.uid).collection('tasks').snapshotChanges();
+          this.snapshotChangesSubscription = this.afs.collection('people').doc(currentUser.uid).collection('task').snapshotChanges();
           resolve(this.snapshotChangesSubscription);
         }
       })
@@ -31,9 +31,10 @@ export class FirebaseService {
     return new Promise<any>((resolve, reject) => {
       this.afAuth.user.subscribe(currentUser => {
         if(currentUser){
-          this.snapshotChangesSubscription = this.afs.doc<any>('people/' + currentUser.uid + '/tasks/' + taskId).valueChanges()
+          this.snapshotChangesSubscription = this.afs.doc<any>('people/' + currentUser.uid + '/task/' + taskId).valueChanges()
           .subscribe(snapshots => {
             resolve(snapshots);
+           
           }, err => {
             reject(err)
           })
@@ -61,7 +62,7 @@ export class FirebaseService {
   deleteTask(taskKey){
     return new Promise<any>((resolve, reject) => {
       let currentUser = firebase.auth().currentUser;
-      this.afs.collection('people').doc(currentUser.uid).collection('tasks').doc(taskKey).delete()
+      this.afs.collection('people').doc(currentUser.uid).collection('task').doc(taskKey).delete()
       .then(
         res => resolve(res),
         err => reject(err)
@@ -72,10 +73,11 @@ export class FirebaseService {
   createTask(value){
     return new Promise<any>((resolve, reject) => {
       let currentUser = firebase.auth().currentUser;
-      this.afs.collection('people').doc(currentUser.uid).collection('tasks').add({
+      this.afs.collection('people').doc(currentUser.uid).collection('task').add({
         title: value.title,
         description: value.description,
-        image: value.image
+        image: value.image,
+        author: value.author
       })
       .then(
         res => resolve(res),

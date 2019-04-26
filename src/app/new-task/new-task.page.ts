@@ -47,7 +47,7 @@ export class NewTaskPage implements OnInit {
       image: this.image,
       author: value.author
     }
-    this.firebaseService.createBook(data)
+    this.firebaseService.createTask(data)
     .then(
       res => {
         this.router.navigate(["/home"]);

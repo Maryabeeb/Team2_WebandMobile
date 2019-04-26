@@ -14,6 +14,7 @@ export class DetailsResolver implements Resolve<any> {
       this.firebaseService.getTask(itemId)
       .then(data => {
         data.id = itemId;
+        console.log(data)
         resolve(data);
       }, err => {
         reject(err);
