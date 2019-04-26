@@ -33,6 +33,15 @@
       <ion-label position="floating" color="primary">Author</ion-label>
       <ion-input type="text" formControlName="author"></ion-input>
     </ion-item>
+    <ion-item>
+      <ion-label position="floating" color="primary">Price</ion-label>
+      <ion-input type="text" formControlName="price"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" color="primary">Published Year</ion-label>
+      <ion-input type="text" formControlName="year"></ion-input>
+    </ion-item>
+    
     <ion-button class="submit-button" expand="block" type="submit" [disabled]="!validations_form.valid">Save</ion-button>
   </form>
   <ion-button class="delete-button" expand="block" color="danger" (click)="delete()">Delete</ion-button>

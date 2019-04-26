@@ -77,7 +77,9 @@ export class FirebaseService {
         title: value.title,
         description: value.description,
         image: value.image,
-        author: value.author
+        author: value.author,
+        price: value.price,
+        year: value.year
       })
       .then(
         res => resolve(res),

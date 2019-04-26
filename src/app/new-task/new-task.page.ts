@@ -36,7 +36,9 @@ export class NewTaskPage implements OnInit {
     this.validations_form = this.formBuilder.group({
       title: new FormControl('', Validators.required),
       description: new FormControl('', Validators.required),
-      author: new FormControl('', Validators.required)
+      author: new FormControl('', Validators.required),
+      price: new FormControl('', Validators.required),
+      year: new FormControl('', Validators.required)
     });
   }
 
@@ -45,7 +47,9 @@ export class NewTaskPage implements OnInit {
       title: value.title,
       description: value.description,
       image: this.image,
-      author: value.author
+      author: value.author,
+      price: value.price,
+      year: value.year
     }
     this.firebaseService.createTask(data)
     .then(
