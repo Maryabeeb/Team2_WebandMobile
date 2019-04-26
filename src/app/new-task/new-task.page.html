@@ -23,23 +23,23 @@
   <form [formGroup]="validations_form" (ngSubmit)="onSubmit(validations_form.value)">
     <ion-item>
       <ion-label position="floating" color="primary">Book Title</ion-label>
-      <ion-input type="text" formControlName="title"></ion-input>
+      <ion-input type="text" placeholder="Enter Book Title" formControlName="title"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating" color="primary">Description</ion-label>
-      <ion-input type="text" formControlName="description"></ion-input>
+      <ion-input type="text" placeholder="Enter Description" formControlName="description"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating" color="primary">Author</ion-label>
-      <ion-input type="text" formControlName="author"></ion-input>
+      <ion-input type="text" placeholder="Enter Author Name" formControlName="author"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating" color="primary">Price</ion-label>
-      <ion-input type="text" formControlName="price"></ion-input>
+      <ion-input type="number" placeholder="Enter Price" formControlName="price"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating" color="primary">Published Year</ion-label>
-      <ion-input type="text" formControlName="year"></ion-input>
+      <ion-input type="number" placeholder="Enter Year" formControlName="year"></ion-input>
     </ion-item>
     
     <ion-button class="submit-btn" expand="block" type="submit" [disabled]="!validations_form.valid">Create</ion-button>
