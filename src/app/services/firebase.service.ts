@@ -81,7 +81,8 @@ export class FirebaseService {
         price: value.price,
         year: value.year,
         edition: value.edition,
-        publisher: value.publisher
+        publisher: value.publisher,
+        isbn: value.isbn
 
       })
       .then(
