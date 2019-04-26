@@ -20,7 +20,7 @@ export class FirebaseService {
     return new Promise<any>((resolve, reject) => {
       this.afAuth.user.subscribe(currentUser => {
         if(currentUser){
-          this.snapshotChangesSubscription = this.afs.collection('Books').doc(currentUser.uid).collection('BookList').snapshotChanges();
+          this.snapshotChangesSubscription = this.afs.collection('Books').doc(currentUser.uid).collection('BookShelf').snapshotChanges();
           resolve(this.snapshotChangesSubscription);
         }
       })
@@ -31,7 +31,7 @@ export class FirebaseService {
     return new Promise<any>((resolve, reject) => {
       this.afAuth.user.subscribe(currentUser => {
         if(currentUser){
-          this.snapshotChangesSubscription = this.afs.doc<any>('Books/' + currentUser.uid + '/BookList/' + taskId).valueChanges()
+          this.snapshotChangesSubscription = this.afs.doc<any>('Books/' + currentUser.uid + '/BookShelf/' + taskId).valueChanges()
           .subscribe(snapshots => {
             resolve(snapshots);
            
@@ -51,7 +51,7 @@ export class FirebaseService {
   updateTask(taskKey, value){
     return new Promise<any>((resolve, reject) => {
       let currentUser = firebase.auth().currentUser;
-      this.afs.collection('Books').doc(currentUser.uid).collection('BookList').doc(taskKey).set(value)
+      this.afs.collection('Books').doc(currentUser.uid).collection('BookShelf').doc(taskKey).set(value)
       .then(
         res => resolve(res),
         err => reject(err)
@@ -62,7 +62,7 @@ export class FirebaseService {
   deleteTask(taskKey){
     return new Promise<any>((resolve, reject) => {
       let currentUser = firebase.auth().currentUser;
-      this.afs.collection('Books').doc(currentUser.uid).collection('BookList').doc(taskKey).delete()
+      this.afs.collection('Books').doc(currentUser.uid).collection('BookShelf').doc(taskKey).delete()
       .then(
         res => resolve(res),
         err => reject(err)
@@ -73,7 +73,7 @@ export class FirebaseService {
   createTask(value){
     return new Promise<any>((resolve, reject) => {
       let currentUser = firebase.auth().currentUser;
-      this.afs.collection('Books').doc(currentUser.uid).collection('BookList').add({
+      this.afs.collection('Books').doc(currentUser.uid).collection('BookShelf').add({
         title: value.title,
         description: value.description,
         image: value.image,
