@@ -79,7 +79,10 @@ export class FirebaseService {
         image: value.image,
         author: value.author,
         price: value.price,
-        year: value.year
+        year: value.year,
+        edition: value.edition,
+        publisher: value.publisher
+
       })
       .then(
         res => resolve(res),

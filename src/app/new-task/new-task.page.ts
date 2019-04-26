@@ -38,7 +38,9 @@ export class NewTaskPage implements OnInit {
       description: new FormControl('', Validators.required),
       author: new FormControl('', Validators.required),
       price: new FormControl('', Validators.required),
-      year: new FormControl('', Validators.required)
+      year: new FormControl('', Validators.required),
+      edition: new FormControl('', Validators.required),
+      publisher: new FormControl('', Validators.required)
     });
   }
 
@@ -49,7 +51,9 @@ export class NewTaskPage implements OnInit {
       image: this.image,
       author: value.author,
       price: value.price,
-      year: value.year
+      year: value.year,
+      edition: value.edition,
+      publisher: value.publisher
     }
     this.firebaseService.createTask(data)
     .then(

@@ -48,7 +48,9 @@ export class DetailsPage implements OnInit {
       description: new FormControl(this.item.description, Validators.required),
       author: new FormControl(this.item.author, Validators.required),
       price: new FormControl(this.item.price, Validators.required),
-      year: new FormControl(this.item.year, Validators.required)
+      year: new FormControl(this.item.year, Validators.required),
+      edition: new FormControl(this.item.edition, Validators.required),
+      publisher: new FormControl(this.item.publisher, Validators.required)
     });
   }
 
@@ -59,7 +61,9 @@ export class DetailsPage implements OnInit {
       image: this.image,
       author: value.author,
       price: value.price,
-      year: value.year
+      year: value.year,
+      edition: value.edition,
+      publisher: value.publisher
     }
     this.firebaseService.updateTask(this.item.id,data)
     .then(
